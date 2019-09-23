@@ -356,7 +356,7 @@ namespace NauckIT.PostgreSQLProvider
                     {
                         dbCommand.CommandText = string.Format(CultureInfo.InvariantCulture, "INSERT INTO \"{0}\" (\"pId\", \"Username\", \"Password\", \"Email\", \"PasswordQuestion\", \"PasswordAnswer\", \"IsApproved\", \"CreationDate\", \"LastPasswordChangedDate\", \"LastActivityDate\", \"ApplicationName\", \"IsLockedOut\", \"LastLockedOutDate\", \"FailedPasswordAttemptCount\", \"FailedPasswordAttemptWindowStart\", \"FailedPasswordAnswerAttemptCount\", \"FailedPasswordAnswerAttemptWindowStart\") Values (@pId, @Username, @Password, @Email, @PasswordQuestion, @PasswordAnswer, @IsApproved, @CreationDate, @LastPasswordChangedDate, @LastActivityDate, @ApplicationName, @IsLockedOut, @LastLockedOutDate, @FailedPasswordAttemptCount, @FailedPasswordAttemptWindowStart, @FailedPasswordAnswerAttemptCount, @FailedPasswordAnswerAttemptWindowStart)", s_tableName);
 
-                        dbCommand.Parameters.Add("@pId", NpgsqlDbType.Varchar, 36).Value = providerUserKey.ToString();
+                        dbCommand.Parameters.Add("@pId", NpgsqlDbType.Varchar, 36).Value = providerUserKey;
                         dbCommand.Parameters.Add("@Username", NpgsqlDbType.Varchar, 255).Value = username;
                         dbCommand.Parameters.Add("@Password", NpgsqlDbType.Varchar, 255).Value = EncodePassword(password);
                         dbCommand.Parameters.Add("@Email", NpgsqlDbType.Varchar, 128).Value = email;
